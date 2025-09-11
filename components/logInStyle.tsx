@@ -1,0 +1,67 @@
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    padding: 20,
+    gap: 20,
+    flexDirection: 'column',
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    gap: 10,
+    height: 50,
+    paddingHorizontal: 10,
+    borderWidth: 1,
+    borderColor: '#0D133D',
+    borderRadius: 8,
+  },
+  logo: {
+    height: 186,
+    width: 186,
+    marginTop: 50,
+    resizeMode: 'contain',
+  },
+  title: {
+    fontSize: 30,
+    fontFamily: 'Montserrat_700Bold',
+    alignSelf: 'flex-start',
+    marginTop: 20,
+    marginBottom: 30,
+  },
+  input: {
+    flex: 1,
+    padding: 12,
+    fontSize: 16,
+    color: '#0D133D',
+    fontFamily: 'Montserrat_400Regular',
+  },
+  forgetPass: {
+    fontWeight: 'bold',
+    fontSize: 15,
+    fontFamily: 'Montserrat',
+    alignSelf: 'flex-end',
+  },
+  signInButton: {
+    backgroundColor: '#0D133D',
+    padding: 18,
+    width: '100%',
+    borderRadius: 10,
+    marginTop: 5,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  dontHaveAccount: {
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+});
