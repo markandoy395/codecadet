@@ -96,3 +96,123 @@ return;
 style={{ flex: 1, padding: 20 }}
 behavior={Platform.OS === "ios" ? "padding" : "height"} // move content up for keyboard >
 <ScrollView keyboardShouldPersistTaps="handled">
+
+SIDE BAR CODES..
+// Custom drawer component that defines how the drawer will look and behave
+function CustomDrawerContent(props: any) {
+return (
+// A scrollable container for the drawer items (handles safe area, gestures, etc.). Remember if you create costume drawer make sure that is not is the same folder.
+<DrawerContentScrollView {...props}> 3 dots means that is spreed to all folder.
+
+      {/* Default Drawer Items (the screens you define with <Drawer.Screen>, like Home & History) */}
+      <DrawerItemList {...props} />
+
+      {/* Extra Drawer Item: Favorites (not a screen, but a shortcut/action) */}
+      <DrawerItem
+        label="Favorites" // Text displayed in the drawer
+        onPress={() => props.navigation.navigate('favorites')} // Go to the 'favorites' screen when clicked
+        icon={({ color, size }) => ( // Icon shown beside the label
+          <Ionicons name="heart" size={size} color={color} />
+        )}
+      />
+
+      {/* Extra Drawer Item: Logout (special action to go back to LoginScreen) */}
+      <DrawerItem
+        label="Logout" // Text displayed in the drawer
+        onPress={() => {
+          router.push('/auth/LoginScreen'); // Navigate to the LoginScreen when clicked
+        }}
+        icon={({ color, size }) => ( // Icon for the Logout option
+          <Ionicons name="log-out-outline" size={size} color={color} />
+        )}
+      />
+    </DrawerContentScrollView>
+
+);
+}
+
+return (
+<GestureHandlerRootView style={{ flex: 1 }}>
+<Drawer
+drawerContent={(props) => <CustomDrawerContent {...props} />}
+screenOptions={{
+          headerShown: false,
+          drawerActiveTintColor: '#ffffff',
+          drawerInactiveTintColor: 'black',
+          drawerActiveBackgroundColor: '#0D133D',
+          drawerInactiveBackgroundColor: 'transparent',
+          drawerItemStyle: {
+            borderRadius: 18,
+            marginVertical: 2,
+            paddingHorizontal: 10,
+          },
+          drawerLabelStyle: {
+            fontSize: 16,
+            fontWeight: '600',
+          },
+        }} >
+{'Display the Home Screen Part'}
+<Drawer.Screen
+name="Home"
+options={{
+            title: 'Home',
+            drawerIcon: ({ color, size }) => (
+              <Ionicons name="home-outline" size={size} color={color} />
+            ),
+          }}
+/>
+
+        {'Display  the History part'}
+        <Drawer.Screen
+          name="history"
+          options={{
+            title: 'History',
+            drawerIcon: ({ color, size }) => (
+              <FontAwesome5 name="history" size={size} color={color} />
+            ),
+          }}
+        />
+      </Drawer>
+    </GestureHandlerRootView>
+
+);
+}
+
+Header Properties
+headerShown → show/hide the header (true /false)
+headerStyle → style the header background (color, shadow, etc.)
+headerTintColor → color of back button + icons
+headerTitleStyle → style for the title text
+title → text shown as the title
+headerTitle → custom React component as title
+headerLeft → custom element on the left (e.g., back button, icon)
+headerRight → custom element on the right (e.g., settings button)
+headerBackTitle → text shown for the back button (iOS)
+headerBackTitleStyle → style for back button text
+headerBackImageSource → custom back button icon/image
+headerTransparent → make header background transparent
+headerBackground → custom background (e.g., gradient, image)
+headerShadowVisible → show/hide bottom shadow under header
+headerTitleAlign → align title (left, center)
+headerLargeTitle → large iOS-style header
+headerLargeTitleStyle → style for large header title
+headerLargeTitleShadowVisible → show/hide shadow under large header
+headerBackVisible → show/hide back button
+headerBlurEffect → add blur effect to header (iOS only)
+
+Drawer.Screen Properties
+name → unique name for the screen (used in navigation)
+component → the React component to render for this screen
+options → configure screen-specific options (title, icon, etc.)
+title → text shown in drawer for this screen
+drawerLabel → custom label text (instead of title)
+drawerIcon → custom icon (usually a function returning an icon)
+drawerLabelStyle → style for the label text
+drawerItemStyle → style for the item container
+drawerActiveTintColor → text/icon color when active
+drawerInactiveTintColor → text/icon color when inactive
+drawerActiveBackgroundColor → background color when active
+drawerInactiveBackgroundColor → background color when inactive
+swipeEnabled → enable/disable swipe to open drawer
+gestureEnabled → enable/disable gestures for screen
+unmountOnBlur → unmount screen when not focused (saves memory)

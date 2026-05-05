@@ -1,29 +1,21 @@
-import React, { useEffect, useRef } from 'react';
-import {
-  Animated,
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
-import { useRouter } from 'expo-router';
-import {
-  useFonts,
-  Montserrat_400Regular,
-  Montserrat_700Bold,
-} from '@expo-google-fonts/montserrat';
+import React, { useEffect, useRef } from 'react'
+import { Animated, Image, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { useRouter } from 'expo-router'
+import { useFonts, Montserrat_400Regular, Montserrat_700Bold } from '@expo-google-fonts/montserrat'
+import { useAppFonts } from '../src/constants/fonts'
+
 export default function LandingPage() {
-  // Animated values
-  const yellowTop = useRef(new Animated.Value(-170)).current;
-  const blueTop = useRef(new Animated.Value(-230)).current;
-  const yellowBottom = useRef(new Animated.Value(-180)).current;
-  const blueBottom = useRef(new Animated.Value(-230)).current;
-  const router = useRouter();
+  const loaded = useAppFonts()
+  const yellowTop = useRef(new Animated.Value(-170)).current
+  const blueTop = useRef(new Animated.Value(-230)).current
+  const yellowBottom = useRef(new Animated.Value(-180)).current
+  const blueBottom = useRef(new Animated.Value(-230)).current
+  const router = useRouter()
   let [fontsLoaded] = useFonts({
     Montserrat_400Regular,
     Montserrat_700Bold,
-  });
+  })
   useEffect(() => {
     // Top swap (Yellow ↔ Blue)
     const animateTop = () => {
@@ -53,9 +45,9 @@ export default function LandingPage() {
               useNativeDriver: false,
             }),
           ]),
-        ])
-      ).start();
-    };
+        ]),
+      ).start()
+    }
 
     // Bottom swap (Yellow ↔ Blue) — runs at different speed
     const animateBottom = () => {
@@ -85,39 +77,27 @@ export default function LandingPage() {
               useNativeDriver: false,
             }),
           ]),
-        ])
-      ).start();
-    };
+        ]),
+      ).start()
+    }
 
-    animateTop();
-    animateBottom();
-  }, []);
+    animateTop()
+    animateBottom()
+  }, [])
 
   return (
     <SafeAreaView style={styles.container}>
       {/* Top Yellow Circle */}
-      <Animated.View
-        style={[styles.circle, styles.yellowCircle, { top: yellowTop }]}
-      />
+      <Animated.View style={[styles.circle, styles.yellowCircle, { top: yellowTop }]} />
 
       {/* Top Blue Circle */}
-      <Animated.View
-        style={[styles.circle, styles.blueCircle, { top: blueTop }]}
-      />
+      <Animated.View style={[styles.circle, styles.blueCircle, { top: blueTop }]} />
 
       {/* Bottom Yellow Circle */}
-      <Animated.View
-        style={[
-          styles.circle,
-          styles.bottomYellowCircle,
-          { bottom: yellowBottom },
-        ]}
-      />
+      <Animated.View style={[styles.circle, styles.bottomYellowCircle, { bottom: yellowBottom }]} />
 
       {/* Bottom Blue Circle */}
-      <Animated.View
-        style={[styles.circle, styles.bottomBlueCircle, { bottom: blueBottom }]}
-      />
+      <Animated.View style={[styles.circle, styles.bottomBlueCircle, { bottom: blueBottom }]} />
 
       {/* Center Image */}
       <Image
@@ -129,14 +109,11 @@ export default function LandingPage() {
       />
 
       {/* Button */}
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => router.push('/auth/LoginScreen')}
-      >
+      <TouchableOpacity style={styles.button} onPress={() => router.push('/auth/LoginScreen')}>
         <Text style={{ color: 'white' }}>Get Started</Text>
       </TouchableOpacity>
     </SafeAreaView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -178,4 +155,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#0D133D',
     left: -130,
   },
-});
+})

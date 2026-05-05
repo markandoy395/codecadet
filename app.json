@@ -4,11 +4,12 @@
     "slug": "CodeCadet",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/codeCadetLogo.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "scheme": "codecadet",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/images/codeCadetLogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,10 +18,11 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/codeCadetLogo.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.anonymous.CodeCadet"
     },
     "web": {
       "favicon": "./assets/favicon.png"

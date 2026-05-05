@@ -1,0 +1,90 @@
+import { StyleSheet } from 'react-native'
+import { SearchBar } from 'react-native-screens'
+
+export default StyleSheet.create({
+  searchBarContainer: {
+    flexDirection: 'row',
+    width: '100%',
+    backgroundColor: 'transparent',
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    padding: 10,
+  },
+  searchBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#0D133D',
+    borderRadius: 15,
+    paddingHorizontal: 10,
+    height: 50,
+    flex: 1,
+    marginLeft: 10,
+  },
+  myPathContainer: {
+    width: '100%',
+    paddingVertical: 15,
+  },
+  SeeMore: {
+    justifyContent: 'space-between',
+    paddingRight: 10,
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  myPathTitle: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#0D133D',
+    marginBottom: 12,
+    paddingLeft: 8,
+  },
+  myPathRow: {
+    flexDirection: 'row',
+    paddingHorizontal: 8,
+  },
+  myPathCard: {
+    width: 170,
+    height: 220,
+    borderRadius: 20,
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOpacity: 0.12,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 5,
+    marginBottom: 10,
+    marginRight: 15,
+    overflow: 'hidden', // makes image corners smooth
+  },
+  myPathImage: {
+    width: '100%',
+    height: 160,
+    resizeMode: 'cover',
+  },
+  cardFooter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flex: 1,
+    padding: 5,
+    width: '100%',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+  cardText: {
+    width: '70%',
+    overflow: 'hidden',
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#0D133D',
+  },
+  heartContainer: {
+    width: '30%',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+})
